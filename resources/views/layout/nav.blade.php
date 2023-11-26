@@ -14,7 +14,7 @@
           ></a>
         </div>
         <div class="text-center">
-          <a class="navbar-brand fw-bold" href="{{route('home')}}">TandaJasa</a>
+          <a class="navbar-brand fw-bold" href="{{route('home')}}">Goworker</a>
         </div>
       </div>
       <div class="d-none d-lg-block w-100">
