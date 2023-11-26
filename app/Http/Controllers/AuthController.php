@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,10 +17,17 @@ class AuthController extends Controller
             'password' => 'required',
             'password_confirm' => 'required|same:password'
         ]);
+
+        $nameWithoutSpaces = Str::lower(Str::replace(' ', '', $request->name));
+        $randomNumber = mt_rand(100000, 999999);
+        $convertedName = $nameWithoutSpaces . $randomNumber;
+
+        // dd($convertedName);
         
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
+            'username' => $convertedName,
             'password' => Hash::make($request->password),
         ]);
         
@@ -49,6 +57,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect()->route('home');
     }
 }

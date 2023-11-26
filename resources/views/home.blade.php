@@ -35,6 +35,7 @@
 <div class="container mt-5">
   <h3 class="fw-bold">Popular projects in your area</h3>
   <div class="row mt-4">
+    @foreach ($services as $service)
     <div class="col-lg-3 col-6 mb-5">
       <a
         href=""
@@ -43,110 +44,13 @@
         <div class="card">
           <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
           <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
+            <h6 class="card-title fw-bold">{{ $service->name }}</h6>
             <p class="card-text">Avg. Project: $52 - $122</p>
           </div>
         </div>
       </a>
     </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-lg-3 col-6 mb-5">
-      <a
-        href=""
-        class="link-underline-opacity-0 ink-offset-2 link-underline"
-      >
-        <div class="card">
-          <img src="{{asset('img/furniture.jpeg')}}" class="card-img-top" alt="..." />
-          <div class="card-body text-center">
-            <h6 class="card-title fw-bold">Furniture Assembly</h6>
-            <p class="card-text">Avg. Project: $52 - $122</p>
-          </div>
-        </div>
-      </a>
-    </div>
+    @endforeach
   </div>
 </div>
 <!-- End Popular -->
@@ -183,6 +87,7 @@
 <div class="container mt-5">
   <h3 class="fw-bold">Feature taskers</h3>
   <div class="row mt-4 justify-content-lg-between justify-content-center">
+    @foreach ($servants as $servant)
     <div class="col-lg-4 mb-3">
       <div class="card shadow border-0">
         <div class="card-body">
@@ -191,7 +96,9 @@
               <img src="img/profile.jpg" class="img-fluid rounded" alt="" />
             </div>
             <div class="col-lg col-6 text-start">
-              <h4 class="m-0 fw-bold">Jeffrey C</h4>
+              <a href="{{route('profile', $servant->username)}}">
+                <h4 class="m-0 fw-bold">{{$servant->name}}</h4>
+              </a>
               <p class="m-0">100% positive reviews</p>
               <p class="m-0">174 Completes</p>
             </div>
@@ -206,23 +113,7 @@
             <div
               class="col-lg d-flex align-items-baseline justify-content-between"
             >
-              <h5 class="fw-bold">Help Moving</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Home Repairs</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Furniture Assembly</h5>
+              <h5 class="fw-bold">{{$servant->service->name ?? 'Job'}}</h5>
               <h5 class="fw-bold">$52.94/hr</h5>
             </div>
           </div>
@@ -239,118 +130,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-4 mb-3">
-      <div class="card shadow border-0">
-        <div class="card-body">
-          <div class="row flex-row">
-            <div class="col-lg-3 col-3">
-              <img src="img/profile.jpg" class="img-fluid rounded" alt="" />
-            </div>
-            <div class="col-lg col-6 text-start">
-              <h4 class="m-0 fw-bold">Jeffrey C</h4>
-              <p class="m-0">100% positive reviews</p>
-              <p class="m-0">174 Completes</p>
-            </div>
-          </div>
-          <hr />
-          <div class="row mb-2">
-            <div class="col-lg">
-              <h5>Featured Skills</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Help Moving</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Home Repairs</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Furniture Assembly</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-lg">
-              <h5 class="fw-bold">I'm the right person for the job:</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus, suscipit. Lorem ipsum dolor sit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 mb-3">
-      <div class="card shadow border-0">
-        <div class="card-body">
-          <div class="row flex-row">
-            <div class="col-lg-3 col-3">
-              <img src="img/profile.jpg" class="img-fluid rounded" alt="" />
-            </div>
-            <div class="col-lg col-6 text-start">
-              <h4 class="m-0 fw-bold">Jeffrey C</h4>
-              <p class="m-0">100% positive reviews</p>
-              <p class="m-0">174 Completes</p>
-            </div>
-          </div>
-          <hr />
-          <div class="row mb-2">
-            <div class="col-lg">
-              <h5>Featured Skills</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Help Moving</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Home Repairs</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div
-              class="col-lg d-flex align-items-baseline justify-content-between"
-            >
-              <h5 class="fw-bold">Furniture Assembly</h5>
-              <h5 class="fw-bold">$52.94/hr</h5>
-            </div>
-          </div>
-          <hr />
-          <div class="row">
-            <div class="col-lg">
-              <h5 class="fw-bold">I'm the right person for the job:</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Accusamus, suscipit. Lorem ipsum dolor sit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>
 <!-- End Taskers -->
@@ -644,6 +424,7 @@
 </div>
 <!-- End Blog -->
 <!-- Ready To Start -->
+@guest
 <div class="container mt-5">
   <div class="row justify-content-center">
     <h2 class="fw-bold text-center">Ready to get started?</h2>
@@ -673,6 +454,7 @@
     </div>
   </div>
 </div>
+@endguest
 <!-- End Ready To Starts -->
 @endsection
 

@@ -25,7 +25,10 @@ Route::get('/task',  fn() => view('user.task'))->name('task');
 Route::get('/account',  fn() => view('user.account'))->name('account')->middleware('auth');
 Route::get('/become-tasker',  [TaskerController::class, 'become_tasker'])->name('become-tasker');
 Route::post('/become-tasker/{id}',  [TaskerController::class, 'update'])->name('become-tasker.update');
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+
+
+Route::get('/{username}', [HomeController::class, 'profile'])->name('profile');
 Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

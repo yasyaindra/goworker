@@ -135,7 +135,7 @@ class ServiceSeeder extends Seeder
                 'service_pic' => 'household_task.jpg'
             ],
         ];
-        
+
 
         foreach($services as $service) {
             Service::insert($service);
